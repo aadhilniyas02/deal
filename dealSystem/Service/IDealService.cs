@@ -20,7 +20,7 @@ namespace dealSystem.services
          public async Task<List<DealViewModel>> GetDealsAsync()
         {
              var deals = await _context.DealManagementSystem.ToListAsync();
-            return deals.Select(DealViewModel.fromDeal).ToList();
+            return deals.Select(DealViewModel.FromDeal ).ToList();
         }
 
 
@@ -28,7 +28,7 @@ namespace dealSystem.services
         public async Task<DealViewModel?> FindDealByIdAsync(int id)
         {
             var deal = await _context.DealManagementSystem.FindAsync(id);
-            return deal == null ? null : DealViewModel.fromDeal(deal);
+            return deal == null ? null : DealViewModel.FromDeal(deal);
         }
 
 

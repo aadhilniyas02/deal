@@ -14,7 +14,7 @@ namespace dealSystem.ViewModel
 
 
         // method for map - from Deal Model to View Model
-        public static DealViewModel fromDeal(Deal deal)
+        public static DealViewModel FromDeal(Deal deal)
         {
             return new DealViewModel
             {
