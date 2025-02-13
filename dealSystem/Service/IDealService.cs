@@ -16,25 +16,20 @@ namespace dealSystem.services
             _context = context;
         }
 
-        // GET all deals - list ( returns View Model)
-         public async Task<List<DealViewModel>> GetDealsAsync()
+         public async Task<List<Deal>> GetDealsAsync()
         {
-             var deals = await _context.DealManagementSystem.ToListAsync();
-            return deals.Select(DealViewModel.FromDeal ).ToList();
+            var deals = await _context.DealManagementSystem.ToListAsync();
+            return deals;
+        }
+
+        public async Task<Deal> FindDealByIdAsync(int id)
+        {
+            var deals = await _context.DealManagementSystem.FindAsync(id);
+            return deals;
         }
 
 
-        // GET One Deal by id ( returns View Model )
-        public async Task<DealViewModel?> FindDealByIdAsync(int id)
-        {
-            var deal = await _context.DealManagementSystem.FindAsync(id);
-            return deal == null ? null : DealViewModel.FromDeal(deal);
-        }
-
-
-
-        // CREAT a new Deal ( stores DealDTO , returns DTO)
-        public async Task<DealDto> AddDealAsync(DealDto dealToCreate)
+        public async Task<Deal> AddDealAsync(DealDto dealToCreate)
         {
             var deal = new Deal
             {
@@ -46,32 +41,30 @@ namespace dealSystem.services
             _context.DealManagementSystem.Add(deal);
             await _context.SaveChangesAsync();
 
-            return dealToCreate;
+            return deal;
         }
 
 
 
-        // Update a deal (returns updated deal)
-        public async Task<DealDto?> UpdateDealAsync(int id, DealDto dealToUpdate)
+        public async Task<Deal> UpdateDealAsync(int id, DealDto dealToUpdate)
         {
             var deal = await _context.DealManagementSystem.FindAsync(id);
-            if(deal == null) return null;   /// checking if there is a deal, doesn't exist - return as null
+            if(deal == null) return null;   
             
-            // if Deal is existing - Updating the deal
             deal.Name = dealToUpdate.Name;
             deal.Slug = dealToUpdate.Slug;
             deal.Title = dealToUpdate.Title;
 
             await _context.SaveChangesAsync();
-            return dealToUpdate; // returns the updated deal 
+            return deal; 
         }
         
 
-        // Delete a deal ( returns true if deleted, false if not found)
+    
         public async Task<bool> DeleteDealAsync(int id)
         {
             var deal = await _context.DealManagementSystem.FindAsync(id);
-            if (deal == null) return false; /// checking if there is existing deal, if not found returns false
+            if (deal == null) return false; 
 
             _context.DealManagementSystem.Remove(deal);
             await _context.SaveChangesAsync();
@@ -79,6 +72,26 @@ namespace dealSystem.services
         }
 
         
+
+        private static DealViewModel ConvertDealModelToDealViewModel (Deal deal)
+        {
+            return new DealViewModel
+            {
+                Name = deal.Name,
+                Slug = deal.Slug,
+                Title = deal.Title
+            };
+        }
+
+        private static Deal ConvertDealDtoToDealModel (DealDto dealDto)
+        {
+            return new Deal 
+            {
+                Name = dealDto.Name,
+                Slug = dealDto.Slug,
+                Title = dealDto.Title
+            };
+        }
     }
 
 }
