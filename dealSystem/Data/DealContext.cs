@@ -11,5 +11,6 @@ public class DealContext : DbContext // Db Context works with Database
     }
 
     public DbSet<Deal> DealManagementSystem { get; set; } 
-                        //Database name
+    public DbSet<Hotel> HotelsTable { get; set;}
+                        
 }

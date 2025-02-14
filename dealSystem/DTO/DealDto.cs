@@ -1,7 +1,7 @@
 
 namespace dealSystem.Model;
 
-public class DealDto  // DTO using for input and output
+public class DealDto  
 {
     public required string Name { get; set; }
     public required string Slug { get; set; }

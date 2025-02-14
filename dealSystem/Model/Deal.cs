@@ -7,4 +7,6 @@ public class Deal
     public required string Name { get; set; }
     public required string Slug { get; set; }
     public required string Title { get; set; }
+
+    public ICollection<Hotel> Hotels { get; set; } = new List<Hotel>();
 }

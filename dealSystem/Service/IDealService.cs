@@ -73,25 +73,25 @@ namespace dealSystem.services
 
         
 
-        private static DealViewModel ConvertDealModelToDealViewModel (Deal deal)
-        {
-            return new DealViewModel
-            {
-                Name = deal.Name,
-                Slug = deal.Slug,
-                Title = deal.Title
-            };
-        }
+        // private static DealViewModel ConvertDealModelToDealViewModel (Deal deal)
+        // {
+        //     return new DealViewModel
+        //     {
+        //         Name = deal.Name,
+        //         Slug = deal.Slug,
+        //         Title = deal.Title
+        //     };
+        // }
 
-        private static Deal ConvertDealDtoToDealModel (DealDto dealDto)
-        {
-            return new Deal 
-            {
-                Name = dealDto.Name,
-                Slug = dealDto.Slug,
-                Title = dealDto.Title
-            };
-        }
+        // private static Deal ConvertDealDtoToDealModel (DealDto dealDto)
+        // {
+        //     return new Deal 
+        //     {
+        //         Name = dealDto.Name,
+        //         Slug = dealDto.Slug,
+        //         Title = dealDto.Title
+        //     };
+        // }
     }
 
 }
