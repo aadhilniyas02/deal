@@ -50,7 +50,8 @@ namespace dealSystem.services
         public async Task<Deal> UpdateDealAsync(int id, DealDto dealToUpdate)
         {
             var deal = await _context.DealManagementSystem.FindAsync(id);
-            if(deal == null) return null;   
+            if(deal == null)
+                throw new KeyNotFoundException("Deal not found");
             
             deal.Name = dealToUpdate.Name;
             deal.Slug = dealToUpdate.Slug;
@@ -74,25 +75,25 @@ namespace dealSystem.services
 
         
 
-        // private static DealViewModel ConvertDealModelToDealViewModel (Deal deal)
-        // {
-        //     return new DealViewModel
-        //     {
-        //         Name = deal.Name,
-        //         Slug = deal.Slug,
-        //         Title = deal.Title
-        //     };
-        // }
+        private static DealViewModel ConvertDealModelToDealViewModel (Deal deal)
+        {
+            return new DealViewModel
+            {
+                Name = deal.Name,
+                Slug = deal.Slug,
+                Title = deal.Title
+            };
+        }
 
-        // private static Deal ConvertDealDtoToDealModel (DealDto dealDto)
-        // {
-        //     return new Deal 
-        //     {
-        //         Name = dealDto.Name,
-        //         Slug = dealDto.Slug,
-        //         Title = dealDto.Title
-        //     };
-        // }
+        private static Deal ConvertDealDtoToDealModel (DealDto dealDto)
+        {
+            return new Deal 
+            {
+                Name = dealDto.Name,
+                Slug = dealDto.Slug,
+                Title = dealDto.Title
+            };
+        }
     }
 
 }
