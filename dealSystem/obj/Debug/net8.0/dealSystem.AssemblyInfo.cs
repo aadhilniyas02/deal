@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("dealSystem")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7f6c716acecc729479543b447922e6c3a2ef08b6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+72ea00878ad0eda3dcfc97740be1b41068860679")]
 [assembly: System.Reflection.AssemblyProductAttribute("dealSystem")]
 [assembly: System.Reflection.AssemblyTitleAttribute("dealSystem")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

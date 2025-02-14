@@ -13,12 +13,6 @@ namespace dealSystem.services
         Task<Deal> AddDealAsync(DealDto dealToCreate); 
         Task<Deal> UpdateDealAsync(int id, DealDto dealToUpdate); 
         Task<bool> DeleteDealAsync(int id); 
-
-        Task<List<Hotel>> GetAllHotelsAsycn();
-        Task<Hotel> FindHotelById(int id);
-        Task<Hotel> AddHotelAsync();
-        Task<Hotel> UpdateHotelAsync(int id, );
-        Task<bool> DeleteHotelAsync(int id);
         
     }
 

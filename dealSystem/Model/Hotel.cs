@@ -9,7 +9,7 @@ namespace dealSystem.Model
         public required string Description { get; set; }
 
         public int DealId {get; set;}
-        public  Deal? Deal { get; set;}
+        public  Deal Deal { get; set;}
 
     }
 }

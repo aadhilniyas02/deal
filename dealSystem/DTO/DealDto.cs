@@ -6,4 +6,5 @@ public class DealDto
     public required string Name { get; set; }
     public required string Slug { get; set; }
     public required string Title { get; set; }
+    public ICollection<Hotel> Hotels { get; } 
 }

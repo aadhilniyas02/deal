@@ -1,5 +1,6 @@
 using dealSystem.Data;
 using dealSystem.Model;
+using System.Linq;
 using dealSystem.ViewModel;
 using Microsoft.EntityFrameworkCore;
 using dealSystem.services;
