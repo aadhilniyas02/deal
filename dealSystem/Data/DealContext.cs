@@ -14,13 +14,13 @@ public class DealContext : DbContext
     {
         modelBuilder.Entity<Deal>()
         .HasMany(d => d.Hotels)
-        .WithOne(d => d.Deal)
-        .HasForeignKey(h => h.DealId);
+        .WithOne(d => d.Deal);
+        //.HasForeignKey(h => h.DealId);
 
         modelBuilder.Entity<Hotel>()
         .HasOne(h => h.Deal)
-        .WithMany(d => d.Hotels)
-        .HasForeignKey(h => h.DealId );
+        .WithMany(d => d.Hotels);
+        //.HasForeignKey(h => h.DealId );
     }
 
 

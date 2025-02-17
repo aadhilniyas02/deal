@@ -11,7 +11,7 @@ using dealSystem.Data;
 namespace dealSystem.Migrations
 {
     [DbContext(typeof(DealContext))]
-    [Migration("20250217101242_HotelsTable")]
+    [Migration("20250217102510_HotelsTable")]
     partial class HotelsTable
     {
         /// <inheritdoc />
