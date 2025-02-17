@@ -12,11 +12,16 @@ public class DealContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Deal>()
+        .HasMany(d => d.Hotels)
+        .WithOne(d => d.Deal)
+        .HasForeignKey(h => h.DealId);
+
         modelBuilder.Entity<Hotel>()
         .HasOne(h => h.Deal)
         .WithMany(d => d.Hotels)
-        .HasForeignKey(h => h.DealId)
-        .OnDelete(DeleteBehavior.Cascade);
+        .HasForeignKey(h => h.DealId );
     }
+
 
 }

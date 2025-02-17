@@ -68,7 +68,6 @@ namespace dealSystem.services
             if(hotels != null)
             {
                 deal.Hotels.Clear();
-                //deal.Hotels.AddRange(hotels);
             }
 
             await _context.SaveChangesAsync();

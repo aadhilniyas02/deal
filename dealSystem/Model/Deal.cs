@@ -10,3 +10,4 @@ public class Deal
 
     public ICollection<Hotel> Hotels { get; set; } = new List<Hotel>();
 }
+
