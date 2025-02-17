@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace dealSystem.Data;
 
-public class DealContext : DbContext // Db Context works with Database
+public class DealContext : DbContext
 {
     public DealContext(DbContextOptions<DealContext> options) : base(options) {}
 

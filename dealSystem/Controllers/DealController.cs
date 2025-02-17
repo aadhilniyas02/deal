@@ -22,7 +22,8 @@ namespace dealSystem.Controllers
         [HttpGet]
         public async Task<ActionResult<List<DealViewModel>>> GetDeals()
         {
-            return Ok(await _dealservice.GetDealsAsync());
+            var deals = await _dealservice.GetDealsAsync();
+            return Ok(deals);
         }
 
 
@@ -30,7 +31,8 @@ namespace dealSystem.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<DealViewModel>> GetDealById(int id)
         {
-            return Ok(await _dealservice.FindDealByIdAsync(id));
+            var deal = await _dealservice.FindDealByIdAsync(id);
+            return Ok(deal);
         }
 
 
@@ -60,6 +62,20 @@ namespace dealSystem.Controllers
             var result = await _dealservice.DeleteDealAsync(id);
 
             return Ok("Deal Deleted Successfully");
+        }
+
+        [HttpPost("{dealId}/add-hotel")]
+        public async Task<ActionResult<Hotel>> AddHotelToDeal(int dealId, Hotel hotel)
+        {
+            var addedHotel = await _dealservice.AddHotelToDealAsync(dealId, hotel);
+            return Ok(addedHotel);
+        }
+
+        [HttpDelete("delete-hotel/{hotelId}")]
+        public async Task<IActionResult> DeleteHotel(int hotelId)
+        {
+            var result = await _dealservice.DeleteHotelAsync(hotelId);
+            return Ok("Hotel Deleted Successfully");
         }
 
     }
